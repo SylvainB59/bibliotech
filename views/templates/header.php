@@ -11,9 +11,9 @@
         <link rel="apple-touch-icon" href="icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="asset/css/normalize.css">
-        <link rel="stylesheet" href="asset/css/bootstrap.css">
-        <link rel="stylesheet" href="asset/css/main.css">
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css">
+        <link rel="stylesheet" href="assets/css/main.css">
     </head>
     <body>
         <!--[if lte IE 9]>
