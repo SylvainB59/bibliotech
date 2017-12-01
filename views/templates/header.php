@@ -19,3 +19,12 @@
         <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
+        <h1>BIBLIOTECH</h1>
+
+        <nav>
+            <form action="" method="POST">
+                <input type="submit" name="home" value="Index">
+                <input type="submit" name="users" value="Lecteurs">
+                <input type="submit" name="addBook" value="Ajouter un livre">
+            </form>
+        </nav>
