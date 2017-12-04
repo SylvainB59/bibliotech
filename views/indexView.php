@@ -6,11 +6,18 @@ include('views/templates/header.php');
 
 <section>
 	<form action="" method="POST">
+		<label for="type">Trier par : </label>
 		<select name="type" id="type">
 			<option value="0">Tous</option>
-			<option value="1">Fantastique</option>
-			<option value="2">Polar</option>
-			<option value="3">Roman</option>
+			<?php
+			foreach($types as $type)
+			{
+			?>
+			<option value="<?php echo $type['id']; ?>"><?php echo $type['typeName']; ?></option>
+			
+			<?php
+			}
+			?>
 		</select>
 		<input type="submit" name="chooseType" value="OK">
 	</form>
@@ -24,7 +31,11 @@ include('views/templates/header.php');
 			<h3><?php echo $book->getTitle(); ?></h3>
 			<p><?php echo $book->getAuthor(); ?></p>
 			<form action="">
+				<input type="hidden" name="bookId" value="<?php echo $book->getId(); ?>">
 				<input type="submit" name="bookBorrow" value="Emprunt">
+			</form>
+			<form action="">
+				<input type="hidden" name="bookId" value="<?php echo $book->getId(); ?>">
 				<input type="submit" name="bookDetail" value="D&eacute;tails">
 			</form>
 		</div>

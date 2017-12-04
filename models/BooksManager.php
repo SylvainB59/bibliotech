@@ -6,8 +6,14 @@ class BooksManager
 
 	public function __construct($db)
 	{
-		// $this->db = $db;
 		$this->setDb($db);
+	}
+
+	public function getTypes()
+	{
+		$req = $this->db->query('SELECT * FROM types');
+		$types = $req->fetchAll(PDO::FETCH_ASSOC);
+		return $types;
 	}
 
 
