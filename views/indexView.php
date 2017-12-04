@@ -26,6 +26,7 @@ include('views/templates/header.php');
 		<?php 
 		foreach($books as $book)
 		{
+			var_dump($book);
 		?>
 		<div class="backgroundcolor">
 			<h3><?php echo $book->getTitle(); ?></h3>

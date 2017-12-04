@@ -1,6 +1,6 @@
 <?php
 
-require('models/BooksManager.php');
+// require('models/BooksManager.php');
 
 $BooksManager = new BooksManager($db);
 

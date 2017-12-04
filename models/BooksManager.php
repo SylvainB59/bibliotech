@@ -19,7 +19,7 @@ class BooksManager
 
 	public function getBooks()
 	{
-		$req = $this->db->query('SELECT b.id, b.author, b.title, b.publicationDate, b.summary, b.borrowBy, t.id, t.typeName type
+		$req = $this->db->query('SELECT b.id, b.author, b.title, b.publicationDate, b.summary, b.borrowBy, t.typeName type
 		                        FROM books b
 		                        INNER JOIN types t
 		                        ON b.typeId = t.id');
