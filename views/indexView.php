@@ -16,14 +16,21 @@ include('views/templates/header.php');
 	</form>
 
 	<article>
+		<?php 
+		foreach($books as $book)
+		{
+		?>
 		<div class="backgroundcolor">
-			<h3>TITRE LIVRE</h3>
-			<p>auteur</p>
+			<h3><?php echo $book->getTitle(); ?></h3>
+			<p><?php echo $book->getAuthor(); ?></p>
 			<form action="">
-				<input type="submit" name="bookDetail" value="D&eacute;tails">
 				<input type="submit" name="bookBorrow" value="Emprunt">
+				<input type="submit" name="bookDetail" value="D&eacute;tails">
 			</form>
 		</div>
+		<?php
+		}
+		?>
 	</article>
 </section>
 
