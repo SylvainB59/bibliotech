@@ -97,10 +97,26 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
 
+p {
+    margin-bottom: 0;
+}
 
+.info {
+    background-color: red;
+}
 
+.available {
+    background-color: cyan;
+}
 
+.borrow {
+    background-color: tomato;
+}
 
 
 

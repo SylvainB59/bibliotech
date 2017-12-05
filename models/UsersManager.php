@@ -13,7 +13,8 @@ class UsersManager
 		$req = $this->db->query('SELECT u.id, u.lastName, u.firstName, u.idNumber, u.idBookBorrow, u.returnDate, b.title bookBorrow
 		                        FROM users u
 		                        LEFT JOIN books b
-		                        ON u.idBookBorrow = b.id');
+		                        ON u.idBookBorrow = b.id
+		                        ORDER BY u.lastName ASC');
 		$data = $req->fetchAll(PDO::FETCH_ASSOC);
 		foreach($data as $value)
 		{

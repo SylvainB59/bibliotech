@@ -9,6 +9,7 @@ class Book
 	private $publicationDate;
 	private $summary;
 	private $borrowBy;
+	private $stock;
 
 	public function __construct(array $data)
 	{
@@ -81,6 +82,14 @@ class Book
   public function getBorrowBy()
   {
       return $this->borrowBy;
+  }
+
+	/**
+   * @return mixed
+   */
+  public function getStock()
+  {
+      return $this->stock;
   }
 
   /**
@@ -163,6 +172,18 @@ class Book
   public function setBorrowBy($borrowBy)
   {
       $this->borrowBy = $borrowBy;
+
+      return $this;
+  }
+
+   /**
+   * @param mixed $stock
+   *
+   * @return self
+   */
+  public function setStock($stock)
+  {
+      $this->stock = $stock;
 
       return $this;
   }
