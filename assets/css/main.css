@@ -106,8 +106,18 @@ p {
     margin-bottom: 0;
 }
 
-.info {
+.erreur, .valid {
+    text-align: center;
+    /*position: fixed;*/
+    /*width: 100%;*/
+}
+
+.erreur {
     background-color: red;
+}
+
+.valid {
+    background-color: green;
 }
 
 .available {

@@ -2,7 +2,6 @@
 
 // require('models/BooksManager.php');
 
-$BooksManager = new BooksManager($db);
 
 
 // echo '<pre>';
@@ -15,16 +14,37 @@ $BooksManager = new BooksManager($db);
 
 if(isset($_POST['validBorrow']))
 {
-	$book = $BooksManager->getBook($_POST['bookId']);
-	$newStock = $book->getStock() - 1;
-	$BooksManager->bookBorrowed($book->getId(), $_POST['userIdNumber'], $newStock);
-	echo '<p class="info">Emprunt enregistré</p>';
+	$user = $UsersManager->getUserByIdNumber($_POST['userIdNumber']);
+	if($user == false)
+	{
+		echo '<p class="erreur">Aucun utilisateur enregistré à ce numéro</p>';
+	}
+	else
+	{
+		$book = $BooksManager->getBook($_POST['bookId']);
+		if($book->getStock() < 1)
+		{
+			echo '<p class="erreur">Plus de stock</p>';
+		}
+		else
+		{
+			$newStock = $book->getStock() - 1;
+			$BooksManager->bookBorrowed($book->getId(), $user->getIdNumber(), $newStock);
+			echo '<p class="valid">Emprunt enregistré</p>';
+		}
+	}
+
 }
 
 if(isset($_POST['bookBorrow']))
 {
 	$book = $BooksManager->getBook($_POST['bookId']);
 	include('views/borrowByView.php');
+}
+elseif(isset($_POST['bookDetail']))
+{
+	$book = $BooksManager->getBook($_POST['bookId']);
+	include('views/bookView.php');
 }
 else
 {

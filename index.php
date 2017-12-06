@@ -16,6 +16,10 @@ spl_autoload_register('loadClass');
 
 require('models/dbConnect.php');
 
+$BooksManager = new BooksManager($db);
+$UsersManager = new UsersManager($db);
+
+
 // var_dump($_POST);
 if(isset($_POST['users']))
 {

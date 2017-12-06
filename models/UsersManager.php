@@ -10,17 +10,46 @@ class UsersManager
 
 	public function getUsers()
 	{
-		$req = $this->db->query('SELECT u.id, u.lastName, u.firstName, u.idNumber, u.idBookBorrow, u.returnDate, b.title bookBorrow
-		                        FROM users u
-		                        LEFT JOIN books b
-		                        ON u.idBookBorrow = b.id
-		                        ORDER BY u.lastName ASC');
+		$req = $this->db->query('SELECT * FROM users ORDER BY lastName ASC');
 		$data = $req->fetchAll(PDO::FETCH_ASSOC);
 		foreach($data as $value)
 		{
 			$users[] = new User($value);
 		}
 		return $users;
+	}
+
+	public function getUserById($userId)
+	{
+		$req = $this->db->prepare('SELECT u.id, u.lastName, u.firstName, u.idNumber, u.idBookBorrow, u.returnDate, b.title bookBorrow
+		                        FROM users u
+		                        LEFT JOIN books b
+		                        ON u.idBookBorrow = b.id
+		                        WHERE u.id = :userId');
+		$req->execute(array('userId' => $userId));
+		$data = $req->fetch(PDO::FETCH_ASSOC);
+		$user = new User($data);
+		return $user;
+	}
+
+	public function getUserByIdNumber($userIdNumber)
+	{
+		$req = $this->db->prepare('SELECT u.id, u.lastName, u.firstName, u.idNumber, u.idBookBorrow, u.returnDate, b.title bookBorrow
+		                        FROM users u
+		                        LEFT JOIN books b
+		                        ON u.idBookBorrow = b.id
+		                        WHERE u.idNumber = :userIdNumber');
+		$req->execute(array('userIdNumber' => $userIdNumber));
+		$data = $req->fetch(PDO::FETCH_ASSOC);
+		if($data == false)
+		{
+			return $data;
+		}
+		else
+		{
+			$user = new User($data);
+			return $user;
+		}
 	}
 
     /**
