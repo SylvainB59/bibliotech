@@ -14,7 +14,8 @@
 
 if(isset($_POST['validBorrow']))
 {
-	$user = $UsersManager->getUserByIdNumber($_POST['userIdNumber']);
+	$userIdNumber = strip_tags($_POST['userIdNumber']);
+	$user = $UsersManager->getUserByIdNumber($userIdNumber);
 	if($user == false)
 	{
 		echo '<p class="erreur">Aucun utilisateur enregistré à ce numéro</p>';
@@ -37,15 +38,20 @@ if(isset($_POST['validBorrow']))
 
 }
 
-if(isset($_POST['bookBorrow']))
-{
-	$book = $BooksManager->getBook($_POST['bookId']);
-	include('views/borrowByView.php');
-}
-elseif(isset($_POST['bookDetail']))
+if(isset($_POST['bookDetail']))
 {
 	$book = $BooksManager->getBook($_POST['bookId']);
 	include('views/bookView.php');
+}
+elseif(isset($_POST['addBook']))
+{
+	$types = $BooksManager->getTypes();
+	include('views/addBookView.php');
+}
+elseif(isset($_POST['bookBorrow']))
+{
+	$book = $BooksManager->getBook($_POST['bookId']);
+	include('views/borrowByView.php');
 }
 else
 {
