@@ -30,6 +30,7 @@ if(isset($_POST['validBorrow']))
 		{
 			$newStock = $book->getStock() - 1;
 			$BooksManager->bookBorrowed($book->getId(), $user->getIdNumber(), $newStock);
+			$UsersManager->bookBorrowed($book->getId(), $user->getId());
 			echo '<p class="valid">Emprunt enregistré</p>';
 		}
 	}
@@ -50,9 +51,6 @@ else
 {
 	$books = $BooksManager->getBooks();
 	$types = $BooksManager->getTypes();
-// 	echo '<pre>';
-// var_dump($books);
-// echo '</pre>';
 	include('views/indexView.php');
 }
 

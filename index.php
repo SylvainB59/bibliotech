@@ -21,7 +21,7 @@ $UsersManager = new UsersManager($db);
 
 
 // var_dump($_POST);
-if(isset($_POST['users']))
+if(isset($_POST['users']) OR isset($_POST['userDetail']))
 {
 	include('controllers/users.php');
 }

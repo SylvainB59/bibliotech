@@ -52,6 +52,15 @@ class UsersManager
 		}
 	}
 
+	public function bookBorrowed($bookId, $userId)
+	{
+		$req = $this->db->prepare('UPDATE users SET idBookBorrow = :idBookBorrow WHERE id = :id');
+		$req->execute(array(
+			'idBookBorrow' => $bookId,
+			'id' => $userId
+		));
+	}
+
     /**
      * @return mixed
      */
