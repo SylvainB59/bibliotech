@@ -97,10 +97,36 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
 
+p {
+    margin-bottom: 0;
+}
 
+.erreur, .valid {
+    text-align: center;
+    /*position: fixed;*/
+    /*width: 100%;*/
+}
 
+.erreur {
+    background-color: red;
+}
 
+.valid {
+    background-color: green;
+}
+
+.available {
+    background-color: cyan;
+}
+
+.borrow {
+    background-color: tomato;
+}
 
 
 
