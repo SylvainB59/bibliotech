@@ -3,6 +3,7 @@
 class Book
 {
 	private $id;
+	private $typeId;
 	private $type;
 	private $author;
 	private $title;
@@ -34,6 +35,14 @@ class Book
   public function getId()
   {
       return $this->id;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getTypeId()
+  {
+      return $this->typeId;
   }
 
   /**
@@ -109,6 +118,18 @@ class Book
    *
    * @return self
    */
+  public function setTypeId($typeId)
+  {
+      $this->typeId = (int)$typeId;
+
+      return $this;
+  }
+
+  /**
+   * @param mixed $type
+   *
+   * @return self
+   */
   public function setType($type)
   {
       $this->type = $type;
@@ -147,7 +168,7 @@ class Book
    */
   public function setPublicationDate($publicationDate)
   {
-      $this->publicationDate = $publicationDate;
+      $this->publicationDate = (int)$publicationDate;
 
       return $this;
   }
@@ -183,7 +204,7 @@ class Book
    */
   public function setStock($stock)
   {
-      $this->stock = $stock;
+      $this->stock = (int)$stock;
 
       return $this;
   }
